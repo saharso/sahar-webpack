@@ -1,5 +1,6 @@
 import join from 'lodash';
-// import foo from './foo';
+import foo from './foo';
+console.log(foo);
 
 function component() {
     const element = document.createElement('div');
