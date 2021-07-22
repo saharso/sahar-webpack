@@ -12,10 +12,15 @@ module.exports = {
     clean: true,
   },
   plugins: [
+    // this generates our root index.html file
     new HtmlWebpackPlugin({
       title: 'Output Management',
     }),
   ],
+  // this opens a server environment for our app.
+  devServer: {
+    contentBase: './dist',
+  },  
   // asset management
   module: {
     rules: [

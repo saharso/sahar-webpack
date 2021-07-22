@@ -1,2 +1,2 @@
-const foo = {foo: 'foo'}
+const foo = {foo: 'boo'}
 export default foo;
