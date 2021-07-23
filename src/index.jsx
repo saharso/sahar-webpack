@@ -2,7 +2,6 @@ import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from 'react-router-dom';
-// import Another from './Another.jsx'
 function App(){
     return <div><Link to="/another">go somewhere else</Link></div>
 }

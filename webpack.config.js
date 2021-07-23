@@ -31,7 +31,20 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          test: /[\\/]node_modules[\\/]/,
+          test: (mod) => {
+            // Remove from the vendor bundle some node_module third party libraries
+            // so they can be loaded only on demand.
+
+            // Only node_modules are needed
+            if (!mod.context.includes('node_modules')) {
+              return false;
+            }
+            // But not node modules that contain these key words in the path
+            if (['lodash',].some(str => mod.context.includes(str))) {
+              return false;
+            }
+            return true;
+          },
           name: 'vendors',
           chunks: 'all',
         },

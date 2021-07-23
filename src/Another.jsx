@@ -1,6 +1,9 @@
+import _ from 'lodash';
 import React from 'react';
 function Another(){
-    return <div>I'm here yo</div>
+    return <div>FOO 
+        {_.join(['I', 'am', 'here'], ' ')}
+    </div>
 }
 
 export default Another;
