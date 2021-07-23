@@ -21,7 +21,9 @@ module.exports = {
   ],
   // this opens a server environment for our app.
   devServer: {
-    contentBase: './dist',
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
   },
   optimization: {
     runtimeChunk: 'single',

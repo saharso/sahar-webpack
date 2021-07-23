@@ -1,15 +1,19 @@
-import React from "react";
+import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
+// import Another from './Another.jsx'
 function App(){
-    return <div>hello world</div>
+    return <div><Link to="/another">go somewhere else</Link></div>
 }
+const Another = React.lazy(() => import('./Another.jsx'));
+const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <Router>
     <Switch>
-      <Route exact path="/" component={App} />
+      <Route exact path="/" render={App} />
+      <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
     </Switch>
   </Router>
 );
