@@ -1,8 +1,8 @@
-import _ from 'lodash';
 import React from 'react';
+import _ from 'lodash';
 function Another(){
-    return <div>FOO 
-        {_.join(['I', 'am', 'here'], ' ')}
+    return <div>FOO<br/>
+        {_.join(['This', 'was', 'written', 'using', 'lodash'], ' ')}
     </div>
 }
 
