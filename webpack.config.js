@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js',
+    index: './src/index.jsx',
   },
   // for development env:
   devtool: 'inline-source-map',
@@ -16,7 +16,7 @@ module.exports = {
   plugins: [
     // this generates our root index.html file
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      template: 'index.html'
     }),
   ],
   // this opens a server environment for our app.
@@ -39,6 +39,21 @@ module.exports = {
   // asset management
   module: {
     rules: [
+      // js and jsx
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: "babel-loader"
+      },
+      // sass
+      {
+        test: /\.scss$/,
+        use:[
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ],
+      },      
       // css
       {
         test: /\.css$/i,
