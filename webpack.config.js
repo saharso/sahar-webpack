@@ -10,7 +10,7 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     clean: true,
   },
   plugins: [
