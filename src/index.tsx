@@ -13,7 +13,7 @@ const Loader = ()=> <div>loading...</div>
 const appRouting = (
   <>
   FOOT
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router>
     <Switch>
       <Route exact path="/" render={App} />
       <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
