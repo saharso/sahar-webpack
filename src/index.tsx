@@ -11,12 +11,13 @@ const Another = React.lazy(() => import('./Another.jsx'));
 const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
-  <Router>
-    <Switch>
-      <Route exact path="/" render={App} />
-      <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
-    </Switch>
-  </Router>
+  <>YO</>
+  // <Router>
+  //   <Switch>
+  //     <Route exact path="/" render={App} />
+  //     <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
+  //   </Switch>
+  // </Router>
 );
 
 ReactDOM.render(appRouting, document.getElementById("root"));
