@@ -24,6 +24,7 @@
     "html-webpack-plugin": "^5.3.2",
     "jsxobj": "^1.1.0",
     "node-sass": "^6.0.1",
+    "node-static": "^0.7.11",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
     "ts-loader": "^9.2.4",
@@ -36,6 +37,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
+    "pages": "static docs",
     "build": "webpack"
   },
   "repository": {
