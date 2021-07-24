@@ -23,7 +23,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
-    hot: true
+    hot: true,
+    Headers: {
+      'permissions-policy': 'interest-cohort=()',
+    },
   },
   optimization: {
     runtimeChunk: 'single',
