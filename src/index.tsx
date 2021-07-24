@@ -1,6 +1,6 @@
 import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as BrowserRouter, Router, Route, Switch } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -11,15 +11,13 @@ const Another = React.lazy(() => import('./Another.jsx'));
 const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
-  <>
+  <BrowserRouter>
   FOO
-  <Router>
     <Switch>
       <Route exact path="/" render={App} />
       <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
     </Switch>
-  </Router>
-  </>
+  </BrowserRouter>
 );
 
 ReactDOM.render(appRouting, document.getElementById("root"));
