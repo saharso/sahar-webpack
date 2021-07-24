@@ -24,9 +24,6 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './',
     hot: true,
-    Headers: {
-      'permissions-policy': 'interest-cohort=()',
-    },
   },
   optimization: {
     runtimeChunk: 'single',
