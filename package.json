@@ -2,7 +2,7 @@
   "name": "sahar-webpack",
   "version": "1.0.0",
   "description": "",
-  "private": true,
+  "private": false,
   "mode": "development",
   "homepage": "http://saharso.github.io/webpack",
   "dependencies": {
