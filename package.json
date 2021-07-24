@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "mode": "development",
-  "homepage": "http://saharso.github.io/webpack/",
+  "homepage": "http://saharso.github.io/webpack",
   "dependencies": {
     "lodash": "^4.17.21",
     "react": "^17.0.2",
