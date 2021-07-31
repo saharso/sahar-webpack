@@ -1,6 +1,6 @@
 import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter, Route, Switch } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -12,14 +12,14 @@ const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <>
-  7
+  9
   <Suspense fallback={<><Loader/></>}><Another/></Suspense>
-  <Router>
+  <HashRouter>
     <Switch>
       <Route exact path="/" render={App} />
       <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
     </Switch>
-  </Router>
+  </HashRouter>
   </>
 );
 

@@ -29,16 +29,16 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './',
     hot: true,
-    before: function (app, server, compiler) {
-      // support for react router's history api
-      app.use(express.static(path.join(__dirname, BUILD_FOLDER)));
+    // before: function (app, server, compiler) {
+    //   // support for react router's history api
+    //   app.use(express.static(path.join(__dirname, BUILD_FOLDER)));
 
-      app.get('/', function (req, res) {
-        res.sendFile(path.join(__dirname, BUILD_FOLDER, 'index.html'));
-      });
+    //   app.get('/', function (req, res) {
+    //     res.sendFile(path.join(__dirname, BUILD_FOLDER, 'index.html'));
+    //   });
       
-      app.listen(9000);
-    },
+    //   app.listen(9000);
+    // },
   },
   optimization: {
     runtimeChunk: 'single',
