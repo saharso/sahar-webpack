@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const express = require('express');
 // const app = express();
+const BUILD_FOLDER = 'dist';
 
 module.exports = {
   mode: 'production',
@@ -12,7 +13,8 @@ module.exports = {
   // devtool: 'inline-source-map',
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, BUILD_FOLDER),
+    publicPath: "/sahar-webpack/",
     clean: true,
   },
   plugins: [
@@ -23,14 +25,15 @@ module.exports = {
   ],
   // this opens a server environment for our app.
   devServer: {
-    contentBase: path.join(__dirname, 'build'),
+    contentBase: path.join(__dirname, BUILD_FOLDER),
     historyApiFallback: true,
     contentBase: './',
     hot: true,
     before: function (app, server, compiler) {
-      app.use(express.static(path.join(__dirname, 'build')));
+      // support for react router's history api
+      app.use(express.static(path.join(__dirname, BUILD_FOLDER)));
       app.get('/*', function (req, res) {
-         res.sendFile(path.join(__dirname, 'build', 'index.html'));
+         res.sendFile(path.join(__dirname, BUILD_FOLDER, 'index.html'));
       });      
     },
   },
