@@ -18,7 +18,7 @@ module.exports = {
   plugins: [
     // this generates our root index.html file
     new HtmlWebpackPlugin({
-      template: '__index.html'
+      template: 'index.html'
     }),
   ],
   // this opens a server environment for our app.
