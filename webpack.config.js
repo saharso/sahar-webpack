@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const express = require('express');
+// const app = express();
 
 module.exports = {
   mode: 'production',
@@ -21,9 +23,16 @@ module.exports = {
   ],
   // this opens a server environment for our app.
   devServer: {
+    contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
     contentBase: './',
     hot: true,
+    before: function (app, server, compiler) {
+      app.use(express.static(path.join(__dirname, 'build')));
+      app.get('/*', function (req, res) {
+         res.sendFile(path.join(__dirname, 'build', 'index.html'));
+      });      
+    },
   },
   optimization: {
     runtimeChunk: 'single',
