@@ -4,19 +4,27 @@ import { BrowserRouter as Router, HashRouter, Route, Switch } from "react-router
 import { Link } from 'react-router-dom';
 import './style.scss';
 
-function App(){
-    return <div><Link to="/another">go somewhere else</Link></div>
+function Nav(){
+    return <nav>
+      <Link to="/">go home</Link>
+      &nbsp;
+      <Link to="/another">go somewhere else</Link>
+    </nav>
+}
+function Home(){
+  return <>
+    <h1>Welcome</h1>
+  </>
 }
 const Another = React.lazy(() => import('./Another.jsx'));
 const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <>
-  9
-  <Suspense fallback={<><Loader/></>}><Another/></Suspense>
   <HashRouter>
+    <Nav/>
     <Switch>
-      <Route exact path="/" render={App} />
+      <Route exact path="/" render={Home} />
       <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
     </Switch>
   </HashRouter>
