@@ -16,7 +16,7 @@ function Home(){
     <h1>Welcome</h1>
   </>
 }
-const Another = React.lazy(() => import('./Another.jsx'));
+const WithLodash = React.lazy(() => import('./WithLodash.jsx'));
 const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
@@ -25,7 +25,7 @@ const appRouting = (
     <Nav/>
     <Switch>
       <Route exact path="/" render={Home} />
-      <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><Another/></Suspense>} />
+      <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><WithLodash/></Suspense>} />
     </Switch>
   </HashRouter>
   </>
