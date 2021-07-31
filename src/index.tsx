@@ -12,7 +12,8 @@ const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <>
-  FOOT
+  2
+  <Suspense fallback={<><Loader/></>}><Another/></Suspense>
   <Router>
     <Switch>
       <Route exact path="/" render={App} />
