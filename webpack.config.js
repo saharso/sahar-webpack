@@ -31,11 +31,17 @@ module.exports = {
     hot: true,
     before: function (app, server, compiler) {
       // support for react router's history api
-      app.use(express.static(path.join(__dirname, BUILD_FOLDER)));
-      app.get('/*', function (req, res) {
-         res.sendFile(path.join(__dirname, BUILD_FOLDER, 'index.html'));
-      });
-      app.listen(9000);
+      // app.use(express.static(path.join(__dirname, BUILD_FOLDER)));
+      // app.get('/*', function (req, res) {
+      //    res.sendFile(path.join(__dirname, BUILD_FOLDER, 'index.html'));
+      // });
+      // app.listen(9000);
+      app.get("*", (req, res) => {
+        let url = path.join(__dirname, '../client/build', 'index.html');
+        if (!url.startsWith('/app/')) // we're on local windows
+        url = url.substring(1);
+       res.sendFile(url);
+     });      
     },
   },
   optimization: {

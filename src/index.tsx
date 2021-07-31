@@ -12,7 +12,7 @@ const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <>
-  3
+  4
   <Suspense fallback={<><Loader/></>}><Another/></Suspense>
   <Router>
     <Switch>
