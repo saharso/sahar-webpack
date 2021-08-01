@@ -1,6 +1,6 @@
 import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -21,13 +21,13 @@ const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <>
-  <HashRouter>
+  <BrowserRouter basename="/sahar-webpack/">
     <Nav/>
     <Switch>
       <Route exact path="/" render={Home} />
       <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><WithLodash/></Suspense>} />
     </Switch>
-  </HashRouter>
+  </BrowserRouter>
   </>
 );
 

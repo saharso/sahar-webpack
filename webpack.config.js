@@ -18,6 +18,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      template: '404.html'
+    }),
   ],
   // this opens a server environment for our app.
   devServer: {
