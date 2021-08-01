@@ -4,11 +4,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './style.scss';
 
+function sep(){
+  return <>&nbsp;|&nbsp;</>
+}
 function Nav(){
     return <nav>
-      <Link to="/">go home</Link>
-      &nbsp;
-      <Link to="/another">go somewhere else</Link>
+      <Link to="/">Home</Link> {sep()} 
+      <Link to="/with-lodash">With Lodash</Link> {sep()} 
+      <Link to="/with-css">With Css</Link>
     </nav>
 }
 function Home(){
@@ -16,16 +19,18 @@ function Home(){
     <h1>Welcome</h1>
   </>
 }
-const WithLodash = React.lazy(() => import('./WithLodash.jsx'));
+const WithLodash = React.lazy(() => import('./components/withLodash/WithLodash.component.jsx'));
+const WithCss = React.lazy(() => import('./components/withCss/withCss.component.jsx'));
 const Loader = ()=> <div>loading...</div>
 
 const appRouting = (
   <>
-  <BrowserRouter basename="/sahar-webpack/">
+  <BrowserRouter basename="/">
     <Nav/>
     <Switch>
       <Route exact path="/" render={Home} />
-      <Route path="/another" render={()=><Suspense fallback={<><Loader/></>}><WithLodash/></Suspense>} />
+      <Route path="/with-lodash" render={()=><Suspense fallback={<><Loader/></>}><WithLodash/></Suspense>} />
+      <Route path="/with-css" render={()=><Suspense fallback={<><Loader/></>}><WithCss/></Suspense>} />
     </Switch>
   </BrowserRouter>
   </>
